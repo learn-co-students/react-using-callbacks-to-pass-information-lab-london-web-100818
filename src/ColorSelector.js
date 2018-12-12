@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
 export default class ColorSelector extends Component {
-  
-  makeColorSwatches = () => (
+
+  makeColorSwatches = (props) => (
     ["#F00", "#F80", "#FF0", "#0F0", "#00F", "#508", "#90D", "#FFF", "#000"].map((str, idx) => {
-      return <div key={idx} className="color-swatch" style={{backgroundColor: str}}/>
+      return <div
+      onClick={(event)=> this.props.handleChangeColor(str)}
+      key={idx} className="color-swatch" style={{backgroundColor: str}}/>
     })
   )
-  
+
   render() {
     return (
       <div id="colorSelector">
@@ -15,5 +17,5 @@ export default class ColorSelector extends Component {
       </div>
     )
   }
-  
+
 }
